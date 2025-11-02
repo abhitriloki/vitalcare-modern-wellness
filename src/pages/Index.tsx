@@ -4,7 +4,7 @@ import ServicesSection from "@/components/ServicesSection";
 import DoctorsSection from "@/components/DoctorsSection";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import TestimonialsSection from "@/components/TestimonialsSection";
-import BMICalculator from "@/components/BMICalculator";
+import HealthCalculators from "@/components/HealthCalculators";
 import BlogSection from "@/components/BlogSection";
 import AppointmentSection from "@/components/AppointmentSection";
 import Footer from "@/components/Footer";
@@ -19,7 +19,7 @@ const Index = () => {
       <DoctorsSection />
       <WhyChooseUs />
       <TestimonialsSection />
-      <BMICalculator />
+      <HealthCalculators />
       <BlogSection />
       <AppointmentSection />
       <Footer />
