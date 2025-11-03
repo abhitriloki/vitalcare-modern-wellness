@@ -1,4 +1,5 @@
 import { Leaf, Facebook, Instagram, Twitter, Linkedin, Youtube, Phone, Mail, MapPin } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -39,13 +40,46 @@ const Footer = () => {
           <div>
             <h3 className="font-poppins text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
-              {["Home", "About Us", "Services", "Our Doctors", "Testimonials", "Blog", "Career Opportunities", "Contact Us"].map((link) => (
-                <li key={link}>
-                  <a href="#" className="text-white/70 hover:text-primary transition-colors">
-                    {link}
-                  </a>
-                </li>
-              ))}
+              <li>
+                <Link to="/" className="text-white/70 hover:text-primary transition-colors">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link to="/about" className="text-white/70 hover:text-primary transition-colors">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <a href="/#services" className="text-white/70 hover:text-primary transition-colors">
+                  Services
+                </a>
+              </li>
+              <li>
+                <a href="/#doctors" className="text-white/70 hover:text-primary transition-colors">
+                  Our Doctors
+                </a>
+              </li>
+              <li>
+                <a href="/#testimonials" className="text-white/70 hover:text-primary transition-colors">
+                  Testimonials
+                </a>
+              </li>
+              <li>
+                <a href="/#blog" className="text-white/70 hover:text-primary transition-colors">
+                  Blog
+                </a>
+              </li>
+              <li>
+                <Link to="/career" className="text-white/70 hover:text-primary transition-colors">
+                  Career Opportunities
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="text-white/70 hover:text-primary transition-colors">
+                  Contact Us
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -53,13 +87,36 @@ const Footer = () => {
           <div>
             <h3 className="font-poppins text-lg font-semibold mb-4">Services</h3>
             <ul className="space-y-2">
-              {["Physiotherapy", "Nutrition Counseling", "Mental Wellness", "Yoga & Fitness", "Ayurvedic Treatment", "Weight Management"].map((service) => (
-                <li key={service}>
-                  <a href="#services" className="text-white/70 hover:text-primary transition-colors">
-                    {service}
-                  </a>
-                </li>
-              ))}
+              <li>
+                <Link to="/services/physiotherapy" className="text-white/70 hover:text-primary transition-colors">
+                  Physiotherapy
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/nutrition" className="text-white/70 hover:text-primary transition-colors">
+                  Nutrition Counseling
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/mental-wellness" className="text-white/70 hover:text-primary transition-colors">
+                  Mental Wellness
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/yoga-fitness" className="text-white/70 hover:text-primary transition-colors">
+                  Yoga & Fitness
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/ayurveda" className="text-white/70 hover:text-primary transition-colors">
+                  Ayurvedic Treatment
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/weight-management" className="text-white/70 hover:text-primary transition-colors">
+                  Weight Management
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -99,9 +156,9 @@ const Footer = () => {
               © 2025 VitalCare Wellness. All rights reserved.
             </p>
             <div className="flex gap-6 text-sm">
-              <a href="#" className="text-white/70 hover:text-primary">Privacy Policy</a>
-              <a href="#" className="text-white/70 hover:text-primary">Terms of Service</a>
-              <a href="#" className="text-white/70 hover:text-primary">Sitemap</a>
+              <Link to="/privacy" className="text-white/70 hover:text-primary">Privacy Policy</Link>
+              <Link to="/terms" className="text-white/70 hover:text-primary">Terms of Service</Link>
+              <a href="/" className="text-white/70 hover:text-primary">Sitemap</a>
             </div>
             <p className="text-white/70 text-sm">
               Made with ❤️ in India

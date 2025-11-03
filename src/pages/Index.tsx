@@ -16,10 +16,10 @@ const Index = () => {
       <Navigation />
       <HeroSection />
       <ServicesSection />
+      <HealthCalculators />
       <DoctorsSection />
       <WhyChooseUs />
       <TestimonialsSection />
-      <HealthCalculators />
       <BlogSection />
       <AppointmentSection />
       <Footer />

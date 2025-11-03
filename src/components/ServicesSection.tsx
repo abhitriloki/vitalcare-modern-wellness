@@ -14,36 +14,42 @@ const ServicesSection = () => {
       icon: Activity,
       image: servicePhysio,
       description: "Expert rehabilitation and pain management",
+      link: "/services/physiotherapy",
     },
     {
       title: "Nutrition Counseling",
       icon: Apple,
       image: serviceNutrition,
       description: "Personalized diet plans for optimal health",
+      link: "/services/nutrition",
     },
     {
       title: "Mental Wellness",
       icon: Brain,
       image: serviceMental,
       description: "Counseling and stress management therapy",
+      link: "/services/mental-wellness",
     },
     {
       title: "Yoga & Fitness",
       icon: Dumbbell,
       image: serviceYoga,
       description: "Guided sessions for physical and mental balance",
+      link: "/services/yoga-fitness",
     },
     {
       title: "Ayurvedic Treatment",
       icon: Leaf,
       image: serviceAyurveda,
       description: "Ancient healing methods for modern ailments",
+      link: "/services/ayurveda",
     },
     {
       title: "Weight Management",
       icon: TrendingDown,
       image: serviceWeight,
       description: "Sustainable weight loss with expert guidance",
+      link: "/services/weight-management",
     },
   ];
 
@@ -61,33 +67,29 @@ const ServicesSection = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <Card
-              key={index}
-              className="overflow-hidden hover-lift cursor-pointer group"
-            >
-              <div className="relative h-64 overflow-hidden">
-                <img
-                  src={service.image}
-                  alt={service.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute top-4 right-4 bg-primary p-3 rounded-full shadow-lg">
-                  <service.icon className="h-6 w-6 text-white" />
+            <a key={index} href={service.link}>
+              <Card className="overflow-hidden hover-lift cursor-pointer group h-full">
+                <div className="relative h-64 overflow-hidden">
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute top-4 right-4 bg-primary p-3 rounded-full shadow-lg">
+                    <service.icon className="h-6 w-6 text-white" />
+                  </div>
                 </div>
-              </div>
-              <CardContent className="p-6">
-                <h3 className="font-poppins text-2xl font-semibold mb-3">
-                  {service.title}
-                </h3>
-                <p className="text-muted-foreground mb-4">{service.description}</p>
-                <a
-                  href="#contact"
-                  className="text-primary font-semibold hover:underline inline-flex items-center"
-                >
-                  Learn More →
-                </a>
-              </CardContent>
-            </Card>
+                <CardContent className="p-6">
+                  <h3 className="font-poppins text-2xl font-semibold mb-3">
+                    {service.title}
+                  </h3>
+                  <p className="text-muted-foreground mb-4">{service.description}</p>
+                  <span className="text-primary font-semibold hover:underline inline-flex items-center">
+                    Learn More →
+                  </span>
+                </CardContent>
+              </Card>
+            </a>
           ))}
         </div>
       </div>

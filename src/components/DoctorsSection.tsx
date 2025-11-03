@@ -81,7 +81,15 @@ const DoctorsSection = () => {
                   <Globe className="h-3 w-3" />
                   <span>{doctor.languages}</span>
                 </div>
-                <Button className="w-full bg-primary hover:bg-primary-dark">
+                <Button 
+                  className="w-full bg-primary hover:bg-primary-dark"
+                  onClick={() => {
+                    const appointmentSection = document.getElementById('appointment');
+                    if (appointmentSection) {
+                      appointmentSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
+                >
                   <Mail className="h-4 w-4 mr-2" />
                   Book Consultation
                 </Button>
