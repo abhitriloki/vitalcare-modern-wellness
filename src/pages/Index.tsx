@@ -5,7 +5,6 @@ import DoctorsSection from "@/components/DoctorsSection";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import HealthCalculators from "@/components/HealthCalculators";
-import BlogSection from "@/components/BlogSection";
 import AppointmentSection from "@/components/AppointmentSection";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -20,7 +19,6 @@ const Index = () => {
       <DoctorsSection />
       <WhyChooseUs />
       <TestimonialsSection />
-      <BlogSection />
       <AppointmentSection />
       <Footer />
       <WhatsAppButton />

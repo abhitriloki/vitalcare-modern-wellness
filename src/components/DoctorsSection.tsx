@@ -11,6 +11,7 @@ const DoctorsSection = () => {
       specialization: "Holistic Health & Lifestyle Medicine",
       languages: "English, Hindi",
       bgColor: "from-primary/10 to-primary/5",
+      photo: "https://api.dicebear.com/7.x/avataaars/svg?seed=Priya&backgroundColor=b6e3f4",
     },
     {
       name: "Dr. Rajesh Kumar",
@@ -19,6 +20,7 @@ const DoctorsSection = () => {
       specialization: "Sports Injuries & Rehabilitation",
       languages: "English, Hindi",
       bgColor: "from-secondary/10 to-secondary/5",
+      photo: "https://api.dicebear.com/7.x/avataaars/svg?seed=Rajesh&backgroundColor=c0aede",
     },
     {
       name: "Nutritionist Ananya Desai",
@@ -27,6 +29,7 @@ const DoctorsSection = () => {
       specialization: "Weight Management & Metabolic Health",
       languages: "English, Hindi, Gujarati",
       bgColor: "from-accent/10 to-accent/5",
+      photo: "https://api.dicebear.com/7.x/avataaars/svg?seed=Ananya&backgroundColor=ffd5dc",
     },
     {
       name: "Yoga Instructor Vikram Patel",
@@ -35,6 +38,7 @@ const DoctorsSection = () => {
       specialization: "Therapeutic Yoga & Meditation",
       languages: "English, Hindi, Marathi",
       bgColor: "from-primary/10 to-primary/5",
+      photo: "https://api.dicebear.com/7.x/avataaars/svg?seed=Vikram&backgroundColor=d1d4f9",
     },
   ];
 
@@ -59,9 +63,11 @@ const DoctorsSection = () => {
               <div className={`h-48 bg-gradient-to-br ${doctor.bgColor} flex items-center justify-center relative overflow-hidden`}>
                 <div className="absolute inset-0 bg-primary/5 group-hover:bg-primary/10 transition-colors" />
                 <div className="relative z-10 text-center">
-                  <div className="w-32 h-32 rounded-full bg-white shadow-xl flex items-center justify-center mb-4 mx-auto border-4 border-primary/20">
-                    <Award className="h-16 w-16 text-primary" />
-                  </div>
+                  <img 
+                    src={doctor.photo} 
+                    alt={doctor.name}
+                    className="w-32 h-32 rounded-full bg-white shadow-xl mb-4 mx-auto border-4 border-primary/20"
+                  />
                 </div>
               </div>
               <CardContent className="p-6 text-center">

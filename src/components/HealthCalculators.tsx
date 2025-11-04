@@ -180,8 +180,15 @@ const HealthCalculators = () => {
   };
 
   return (
-    <section className="py-20 gradient-primary">
-      <div className="container mx-auto px-4">
+    <section id="calculators" className="py-20 gradient-primary relative overflow-hidden">
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 opacity-5 bg-cover bg-center"
+        style={{ 
+          backgroundImage: `url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1920&q=80')`,
+        }}
+      />
+      <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12 animate-fade-in-up">
             <h2 className="font-poppins text-4xl md:text-5xl font-bold text-white mb-4">

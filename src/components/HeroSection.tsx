@@ -1,10 +1,60 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { ChevronDown, Users } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 import heroImage from "@/assets/hero-wellness.jpg";
 
 const HeroSection = () => {
+  const { toast } = useToast();
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    date: "",
+    service: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Validation
+    if (!formData.name.trim()) {
+      toast({ title: "Error", description: "Please enter your name", variant: "destructive" });
+      return;
+    }
+    if (!formData.phone.trim() || formData.phone.length < 10) {
+      toast({ title: "Error", description: "Please enter a valid phone number", variant: "destructive" });
+      return;
+    }
+    if (!formData.email.trim() || !formData.email.includes("@")) {
+      toast({ title: "Error", description: "Please enter a valid email", variant: "destructive" });
+      return;
+    }
+    if (!formData.date) {
+      toast({ title: "Error", description: "Please select a date", variant: "destructive" });
+      return;
+    }
+    if (!formData.service) {
+      toast({ title: "Error", description: "Please select a service", variant: "destructive" });
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    // Simulate API call
+    setTimeout(() => {
+      toast({
+        title: "Success!",
+        description: "Your appointment request has been submitted. We'll contact you shortly.",
+      });
+      setFormData({ name: "", phone: "", email: "", date: "", service: "" });
+      setIsSubmitting(false);
+    }, 1000);
+  };
+
   return (
     <section id="home" className="relative min-h-screen flex items-center">
       {/* Background Image with Overlay */}
@@ -27,10 +77,29 @@ const HeroSection = () => {
               Holistic wellness solutions for mind, body, and soul. Expert care, personalized treatment, lasting results.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-primary hover:bg-primary-dark text-white text-lg px-8 py-6">
+              <Button 
+                size="lg" 
+                className="bg-primary hover:bg-primary-dark text-white text-lg px-8 py-6"
+                onClick={() => {
+                  const appointmentSection = document.getElementById('appointment');
+                  if (appointmentSection) {
+                    appointmentSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+              >
                 Book Free Consultation
               </Button>
-              <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-primary text-lg px-8 py-6">
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="border-2 border-white bg-white/10 text-white hover:bg-white hover:text-primary text-lg px-8 py-6"
+                onClick={() => {
+                  const servicesSection = document.getElementById('services');
+                  if (servicesSection) {
+                    servicesSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+              >
                 Explore Services
               </Button>
             </div>
@@ -45,22 +114,57 @@ const HeroSection = () => {
             <h3 className="font-poppins text-2xl font-bold mb-6 text-center">
               Quick Appointment
             </h3>
-            <form className="space-y-4">
-              <Input placeholder="Your Name" className="h-12" />
-              <Input type="tel" placeholder="Phone Number" className="h-12" />
-              <Input type="email" placeholder="Email Address" className="h-12" />
-              <Input type="date" className="h-12" />
-              <select className="w-full h-12 px-3 border border-input rounded-md bg-background">
-                <option>Select Service</option>
-                <option>Physiotherapy</option>
-                <option>Nutrition Counseling</option>
-                <option>Mental Wellness</option>
-                <option>Yoga & Fitness</option>
-                <option>Ayurvedic Treatment</option>
-                <option>Weight Management</option>
+            <form className="space-y-4" onSubmit={handleSubmit}>
+              <Input 
+                placeholder="Your Name" 
+                className="h-12"
+                value={formData.name}
+                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                required
+              />
+              <Input 
+                type="tel" 
+                placeholder="Phone Number" 
+                className="h-12"
+                value={formData.phone}
+                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                required
+              />
+              <Input 
+                type="email" 
+                placeholder="Email Address" 
+                className="h-12"
+                value={formData.email}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                required
+              />
+              <Input 
+                type="date" 
+                className="h-12"
+                value={formData.date}
+                onChange={(e) => setFormData({ ...formData, date: e.target.value })}
+                required
+              />
+              <select 
+                className="w-full h-12 px-3 border border-input rounded-md bg-background"
+                value={formData.service}
+                onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+                required
+              >
+                <option value="">Select Service</option>
+                <option value="physiotherapy">Physiotherapy</option>
+                <option value="nutrition">Nutrition Counseling</option>
+                <option value="mental">Mental Wellness</option>
+                <option value="yoga">Yoga & Fitness</option>
+                <option value="ayurveda">Ayurvedic Treatment</option>
+                <option value="weight">Weight Management</option>
               </select>
-              <Button className="w-full h-12 bg-primary hover:bg-primary-dark text-white text-lg">
-                Book Now
+              <Button 
+                type="submit"
+                className="w-full h-12 bg-primary hover:bg-primary-dark text-white text-lg"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? "Submitting..." : "Book Now"}
               </Button>
             </form>
           </Card>

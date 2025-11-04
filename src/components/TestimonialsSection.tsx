@@ -9,6 +9,7 @@ const TestimonialsSection = () => {
       quote: "Lost 25 kg in 6 months with VitalCare's personalized nutrition and fitness plan. The team supported me every step of the way.",
       treatment: "Weight Management Program",
       rating: 5,
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Rahul",
     },
     {
       name: "Meera Iyer",
@@ -16,6 +17,7 @@ const TestimonialsSection = () => {
       quote: "Chronic back pain for 10 years resolved with expert physiotherapy. Now I can play with my kids pain-free!",
       treatment: "Physiotherapy",
       rating: 5,
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Meera",
     },
     {
       name: "Amit Singh",
@@ -23,6 +25,7 @@ const TestimonialsSection = () => {
       quote: "Stress and anxiety were affecting my work. The counseling sessions and yoga helped me regain balance and peace.",
       treatment: "Mental Wellness Program",
       rating: 5,
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Amit",
     },
   ];
 
@@ -56,13 +59,20 @@ const TestimonialsSection = () => {
                 <p className="text-lg mb-6 italic text-foreground">
                   "{testimonial.quote}"
                 </p>
-                <div className="border-t pt-4">
-                  <p className="font-semibold text-lg">
-                    {testimonial.name}, {testimonial.age}
-                  </p>
-                  <p className="text-sm text-muted-foreground">
-                    {testimonial.treatment}
-                  </p>
+                <div className="border-t pt-4 flex items-center gap-4">
+                  <img 
+                    src={testimonial.avatar} 
+                    alt={testimonial.name}
+                    className="w-12 h-12 rounded-full border-2 border-primary/20"
+                  />
+                  <div>
+                    <p className="font-semibold text-lg">
+                      {testimonial.name}, {testimonial.age}
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      {testimonial.treatment}
+                    </p>
+                  </div>
                 </div>
               </CardContent>
             </Card>
