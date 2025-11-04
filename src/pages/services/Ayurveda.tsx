@@ -20,18 +20,22 @@ const Ayurveda = () => {
     {
       title: "Panchakarma",
       description: "Comprehensive detoxification and rejuvenation therapy",
+      image: "https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=600&q=80",
     },
     {
       title: "Abhyanga",
       description: "Therapeutic full-body massage with herbal oils",
+      image: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=600&q=80",
     },
     {
       title: "Shirodhara",
       description: "Calming treatment for stress and mental clarity",
+      image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=600&q=80",
     },
     {
       title: "Herbal Remedies",
       description: "Customized plant-based medicines for various conditions",
+      image: "https://images.unsplash.com/photo-1585435557343-3b092031a831?w=600&q=80",
     },
   ];
 
@@ -103,9 +107,19 @@ const Ayurveda = () => {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {treatments.map((treatment, index) => (
-              <Card key={index} className="hover-lift">
+              <Card key={index} className="group hover-lift overflow-hidden border-none shadow-lg">
+                <div className="relative h-48 overflow-hidden">
+                  <img 
+                    src={treatment.image} 
+                    alt={treatment.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                  <h3 className="absolute bottom-4 left-4 right-4 font-poppins text-xl font-semibold text-white">
+                    {treatment.title}
+                  </h3>
+                </div>
                 <CardContent className="p-6">
-                  <h3 className="font-poppins text-xl font-semibold mb-3">{treatment.title}</h3>
                   <p className="text-muted-foreground">{treatment.description}</p>
                 </CardContent>
               </Card>

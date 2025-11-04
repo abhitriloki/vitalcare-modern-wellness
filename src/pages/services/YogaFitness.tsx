@@ -20,18 +20,22 @@ const YogaFitness = () => {
     {
       title: "Hatha Yoga",
       description: "Traditional practice focusing on physical postures and breathing",
+      image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&q=80",
     },
     {
       title: "Vinyasa Flow",
       description: "Dynamic sequences linking breath with movement",
+      image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&q=80",
     },
     {
       title: "Therapeutic Yoga",
       description: "Customized practice for injury recovery and pain management",
+      image: "https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?w=600&q=80",
     },
     {
       title: "Meditation & Pranayama",
       description: "Breathwork and mindfulness for mental wellness",
+      image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80",
     },
   ];
 
@@ -103,9 +107,19 @@ const YogaFitness = () => {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {classes.map((classItem, index) => (
-              <Card key={index} className="hover-lift">
+              <Card key={index} className="group hover-lift overflow-hidden border-none shadow-lg">
+                <div className="relative h-48 overflow-hidden">
+                  <img 
+                    src={classItem.image} 
+                    alt={classItem.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                  <h3 className="absolute bottom-4 left-4 right-4 font-poppins text-xl font-semibold text-white">
+                    {classItem.title}
+                  </h3>
+                </div>
                 <CardContent className="p-6">
-                  <h3 className="font-poppins text-xl font-semibold mb-3">{classItem.title}</h3>
                   <p className="text-muted-foreground">{classItem.description}</p>
                 </CardContent>
               </Card>

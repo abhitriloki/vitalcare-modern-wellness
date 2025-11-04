@@ -20,18 +20,22 @@ const Physiotherapy = () => {
     {
       title: "Manual Therapy",
       description: "Hands-on techniques to improve joint mobility and reduce pain",
+      image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&q=80",
     },
     {
       title: "Exercise Therapy",
       description: "Customized exercise programs for strength and flexibility",
+      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80",
     },
     {
       title: "Electrotherapy",
       description: "Advanced equipment for pain relief and tissue healing",
+      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&q=80",
     },
     {
       title: "Sports Rehabilitation",
       description: "Specialized programs for athletes and active individuals",
+      image: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=600&q=80",
     },
   ];
 
@@ -106,9 +110,19 @@ const Physiotherapy = () => {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {treatments.map((treatment, index) => (
-              <Card key={index} className="hover-lift">
+              <Card key={index} className="group hover-lift overflow-hidden border-none shadow-lg">
+                <div className="relative h-48 overflow-hidden">
+                  <img 
+                    src={treatment.image} 
+                    alt={treatment.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                  <h3 className="absolute bottom-4 left-4 right-4 font-poppins text-xl font-semibold text-white">
+                    {treatment.title}
+                  </h3>
+                </div>
                 <CardContent className="p-6">
-                  <h3 className="font-poppins text-xl font-semibold mb-3">{treatment.title}</h3>
                   <p className="text-muted-foreground">{treatment.description}</p>
                 </CardContent>
               </Card>

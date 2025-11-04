@@ -20,18 +20,22 @@ const WeightManagement = () => {
     {
       title: "Comprehensive Assessment",
       description: "Detailed analysis of metabolism, body composition, and health markers",
+      image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&q=80",
     },
     {
       title: "Customized Nutrition",
       description: "Meal plans designed for your preferences and goals",
+      image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&q=80",
     },
     {
       title: "Exercise Prescription",
       description: "Tailored fitness routines for optimal fat loss and muscle preservation",
+      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80",
     },
     {
       title: "Ongoing Support",
       description: "Regular check-ins and adjustments to ensure continued progress",
+      image: "https://images.unsplash.com/photo-1551836022-deb4988cc6c0?w=600&q=80",
     },
   ];
 
@@ -103,9 +107,19 @@ const WeightManagement = () => {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {programs.map((program, index) => (
-              <Card key={index} className="hover-lift">
+              <Card key={index} className="group hover-lift overflow-hidden border-none shadow-lg">
+                <div className="relative h-48 overflow-hidden">
+                  <img 
+                    src={program.image} 
+                    alt={program.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                  <h3 className="absolute bottom-4 left-4 right-4 font-poppins text-xl font-semibold text-white">
+                    {program.title}
+                  </h3>
+                </div>
                 <CardContent className="p-6">
-                  <h3 className="font-poppins text-xl font-semibold mb-3">{program.title}</h3>
                   <p className="text-muted-foreground">{program.description}</p>
                 </CardContent>
               </Card>

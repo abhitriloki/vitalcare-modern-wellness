@@ -20,18 +20,22 @@ const MentalWellness = () => {
     {
       title: "Individual Therapy",
       description: "One-on-one sessions tailored to your specific needs",
+      image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600&q=80",
     },
     {
       title: "Couples Counseling",
       description: "Strengthen relationships and improve communication",
+      image: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=600&q=80",
     },
     {
       title: "Group Therapy",
       description: "Shared experiences and mutual support in a safe environment",
+      image: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=600&q=80",
     },
     {
       title: "Mindfulness Training",
       description: "Techniques for present-moment awareness and stress reduction",
+      image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&q=80",
     },
   ];
 
@@ -103,9 +107,19 @@ const MentalWellness = () => {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {services.map((service, index) => (
-              <Card key={index} className="hover-lift">
+              <Card key={index} className="group hover-lift overflow-hidden border-none shadow-lg">
+                <div className="relative h-48 overflow-hidden">
+                  <img 
+                    src={service.image} 
+                    alt={service.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                  <h3 className="absolute bottom-4 left-4 right-4 font-poppins text-xl font-semibold text-white">
+                    {service.title}
+                  </h3>
+                </div>
                 <CardContent className="p-6">
-                  <h3 className="font-poppins text-xl font-semibold mb-3">{service.title}</h3>
                   <p className="text-muted-foreground">{service.description}</p>
                 </CardContent>
               </Card>
