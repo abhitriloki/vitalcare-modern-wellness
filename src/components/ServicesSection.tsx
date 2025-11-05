@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Activity, Apple, Brain, Dumbbell, Leaf, TrendingDown } from "lucide-react";
+import { Link } from "react-router-dom";
 import servicePhysio from "@/assets/service-physio.jpg";
 import serviceNutrition from "@/assets/service-nutrition.jpg";
 import serviceMental from "@/assets/service-mental.jpg";
@@ -67,7 +68,7 @@ const ServicesSection = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <a key={index} href={service.link}>
+            <Link key={index} to={service.link}>
               <Card className="overflow-hidden hover-lift cursor-pointer group h-full">
                 <div className="relative h-64 overflow-hidden">
                   <img
@@ -89,7 +90,7 @@ const ServicesSection = () => {
                   </span>
                 </CardContent>
               </Card>
-            </a>
+            </Link>
           ))}
         </div>
       </div>

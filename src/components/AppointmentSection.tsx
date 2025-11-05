@@ -6,7 +6,7 @@ import { Phone, Mail, MapPin, Clock } from "lucide-react";
 
 const AppointmentSection = () => {
   return (
-    <section id="contact" className="py-20 gradient-primary">
+    <section id="appointment" className="py-20 gradient-primary">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 animate-fade-in-up">
           <h2 className="font-poppins text-4xl md:text-5xl font-bold text-white mb-4">
